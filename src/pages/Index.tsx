@@ -60,6 +60,13 @@ const Index = () => {
     setShowForm(true);
   };
 
+  const handleNewSpin = () => {
+    setHasSpun(false);
+    setShowWinModal(false);
+    setWonPrize('');
+    setCurrentLead(null);
+  };
+
   const handleFormSubmit = (data: { name: string; phone: string; email: string }) => {
     setCurrentLead(data);
     setShowForm(false);
@@ -179,29 +186,35 @@ const Index = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
+          className="flex flex-col sm:flex-row gap-3"
         >
-          <Button
-            onClick={handleSpinClick}
-            disabled={isSpinning || hasSpun}
-            className="btn-spin text-primary-foreground px-12 py-7 text-xl rounded-2xl"
-          >
-            {isSpinning ? (
-              <>
-                <Sparkles className="w-6 h-6 mr-2 animate-spin" />
-                Spinning...
-              </>
-            ) : hasSpun ? (
-              <>
-                <Gift className="w-6 h-6 mr-2" />
-                Already Played
-              </>
-            ) : (
-              <>
-                <Sparkles className="w-6 h-6 mr-2" />
-                SPIN NOW
-              </>
-            )}
-          </Button>
+          {hasSpun ? (
+            <Button
+              onClick={handleNewSpin}
+              className="btn-spin text-primary-foreground px-8 py-6 sm:px-12 sm:py-7 text-lg sm:text-xl rounded-2xl"
+            >
+              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
+              New Spin
+            </Button>
+          ) : (
+            <Button
+              onClick={handleSpinClick}
+              disabled={isSpinning}
+              className="btn-spin text-primary-foreground px-8 py-6 sm:px-12 sm:py-7 text-lg sm:text-xl rounded-2xl"
+            >
+              {isSpinning ? (
+                <>
+                  <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 mr-2 animate-spin" />
+                  Spinning...
+                </>
+              ) : (
+                <>
+                  <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
+                  SPIN NOW
+                </>
+              )}
+            </Button>
+          )}
         </motion.div>
 
         {/* Prize hints */}
