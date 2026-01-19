@@ -60,13 +60,13 @@ export const LeadForm = ({ isOpen, onClose, onSubmit }: LeadFormProps) => {
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50"
+            className="absolute inset-0 bg-background/80 backdrop-blur-sm"
             onClick={onClose}
           />
 
@@ -76,7 +76,7 @@ export const LeadForm = ({ isOpen, onClose, onSubmit }: LeadFormProps) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: 'spring', duration: 0.5 }}
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-md z-50"
+            className="relative w-full max-w-md"
           >
             <div className="card-elevated p-6 md:p-8">
               {/* Close button */}
@@ -178,7 +178,7 @@ export const LeadForm = ({ isOpen, onClose, onSubmit }: LeadFormProps) => {
               </form>
             </div>
           </motion.div>
-        </>
+        </div>
       )}
     </AnimatePresence>
   );
