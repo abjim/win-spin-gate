@@ -76,7 +76,7 @@ export const LeadForm = ({ isOpen, onClose, onSubmit }: LeadFormProps) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: 'spring', duration: 0.5 }}
-            className="fixed inset-x-4 top-1/2 -translate-y-1/2 md:inset-x-auto md:left-1/2 md:-translate-x-1/2 md:w-full md:max-w-md z-50"
+            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-md z-50"
           >
             <div className="card-elevated p-6 md:p-8">
               {/* Close button */}
