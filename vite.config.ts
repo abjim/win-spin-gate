@@ -7,7 +7,7 @@ import { componentTagger } from "lovable-tagger";
 export default defineConfig(({ mode }) => ({
   // 👇 IMPORTANT: Replace 'YOUR-REPO-NAME' with your actual repository name!
   // Example: If your repo url is github.com/ahmad/cool-project, this should be '/cool-project/'
-  base: "/YOUR-REPO-NAME/", 
+  base: "/win-spin-gate/", 
   
   server: {
     host: "::",
