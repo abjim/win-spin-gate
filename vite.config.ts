@@ -5,6 +5,10 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  // 👇 IMPORTANT: Replace 'YOUR-REPO-NAME' with your actual repository name!
+  // Example: If your repo url is github.com/ahmad/cool-project, this should be '/cool-project/'
+  base: "/YOUR-REPO-NAME/", 
+  
   server: {
     host: "::",
     port: 8080,
@@ -12,7 +16,10 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  plugins: [
+    react(), 
+    mode === "development" && componentTagger()
+  ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
